@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: spring-cloud-alibaba-dubbo-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: true
+        server-addr: 127.0.0.1:8848
+        port: 10000
+  mail:
+    # 邮箱用户名
+    username:
+    # 邮箱密码
+    password:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
+
+zero:
+  mail:
+    domain: 163.com
+    from: ${spring.mail.username}@${zero.mail.domain}
+
+dubbo:
+  scan:
+    base-packages: io.github.dunwu.zero.mail.service
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+  registry:
+    address: spring-cloud://localhost
+
+server:
+  port: 10000
