@@ -1,9 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "zero.mail.from",
-      "type": "java.lang.String",
-      "description": "Description for zero.mail.from."
-    }
-  ]
-}

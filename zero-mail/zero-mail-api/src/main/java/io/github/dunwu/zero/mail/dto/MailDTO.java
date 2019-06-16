@@ -6,6 +6,7 @@ import java.util.Date;
 
 /**
  * 邮件信息实体
+ *
  * @author <a href="mailto:forbreak@163.com">Zhang Peng</a>
  * @since 2019-04-27
  */
@@ -22,6 +23,11 @@ public class MailDTO implements Serializable {
     private String subject;
     private String text;
     private String[] filenames;
+    private Boolean html;
+
+    public MailDTO() {
+        this.html = true;
+    }
 
     public String getFrom() {
         return from;
@@ -95,11 +101,19 @@ public class MailDTO implements Serializable {
         this.filenames = filenames;
     }
 
+    public Boolean getHtml() {
+        return html;
+    }
+
+    public void setHtml(Boolean html) {
+        this.html = html;
+    }
+
     @Override
     public String toString() {
         return "MailDTO{" + "from='" + from + '\'' + ", replyTo='" + replyTo + '\'' + ", to=" + Arrays.toString(to)
-                + ", cc=" + Arrays.toString(cc) + ", bcc=" + Arrays.toString(bcc) + ", sentDate=" + sentDate
-                + ", subject='" + subject + '\'' + ", text='" + text + '\'' + ", filenames=" + Arrays
-                .toString(filenames) + '}';
+            + ", cc=" + Arrays.toString(cc) + ", bcc=" + Arrays.toString(bcc) + ", sentDate=" + sentDate + ", subject='"
+            + subject + '\'' + ", text='" + text + '\'' + ", filenames=" + Arrays.toString(filenames) + ", html=" + html
+            + '}';
     }
 }

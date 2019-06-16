@@ -13,7 +13,7 @@
   <artifactId>zero-mail-provider</artifactId>
 
   <properties>
-    <dunwu.version>0.4.0-SNAPSHOT</dunwu.version>
+    <dunwu.version>0.4.2-SNAPSHOT</dunwu.version>
   </properties>
 
   <dependencies>
