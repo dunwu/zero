@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+  <property name="PROJECT" value="zero-aaa-provider"/>
+  <property name="PATTERN"
+            value="%d{HH:mm:ss.SSS} [%boldYellow(%thread)] [%highlight(%-5level)] %boldGreen(%c{36}.%M) - %boldBlue(%m%n)"/>
+
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${PATTERN}</pattern>
+    </encoder>
+  </appender>
+  <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${user.dir}/log/${PROJECT}.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>30MB</maxFileSize>
+    </triggeringPolicy>
+
+    <encoder>
+      <pattern>${PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="io.github.dunwu" level="DEBUG" additivity="false">
+    <appender-ref ref="ALL"/>
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+  <root level="WARN">
+    <appender-ref ref="ALL"/>
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
